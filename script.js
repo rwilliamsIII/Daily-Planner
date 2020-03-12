@@ -66,7 +66,12 @@ function generatePlanner(){
         var hour = moment().add(i - 3, "hour").format("h a");
         $(".btn:eq(" + i + ")").click(function() {
             var input = $(".form-control:text").val();
-
+            console.log(input);
+            inputArray.push(input);
+            console.log(inputArray);
+            localStorage.setItem(hour, JSON.stringify(inputArray));
+            parsedArray = JSON.parse(localStorage.getItem(hour));
+            console.log(parsedArray);
         });
     };
     
