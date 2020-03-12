@@ -11,4 +11,4 @@ Contact: github-@rhwiii
 Created with: HTML/CSS/JQuery/JS/Bootstrap
 
 
-Live Link: 
+Live Link: https://rwilliamsiii.github.io/Daily-Planner/
