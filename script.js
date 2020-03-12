@@ -63,7 +63,11 @@ function generatePlanner(){
         $("input-group-prepend:eq(" + i + ")").append($("<input>").addClass("btn btn-primary").attr("type", "submit").attr("value", "Save"));
         $(".hourSlot:eq(" + i + ")").append(moment().add(i - 3, "hour").format("h a"));
 
-        
+        var hour = moment().add(i - 3, "hour").format("h a");
+        $(".btn:eq(" + i + ")").click(function() {
+            var input = $(".form-control:text").val();
+
+        });
     };
     
 };
