@@ -1,4 +1,4 @@
-var showDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+var showDate = moment().format("dddd, MMMM Do YYYY, h:mm a");
 var hourCount = 0;
 var inputArray = [];
 var input = "";
@@ -7,6 +7,7 @@ var input = "";
 
 $(document).ready(function() {
     displayDate();
+    generatePlanner();
 });
 
 
@@ -16,35 +17,28 @@ $("#currentDay").html(showDate);
 console.log(showDate);
 };
 
+// created variables for the creation of dynamic html content
+    var timeBlockBox = document.querySelector(".container")
+    var timeBlock = $("<div>", {"class": "row"});
+    var hourBlock = $("<div>", {"class": "col-md-1"});
+    var textBlock = $("<div>", {"class": "col-md-10"});
+    var saveBlock = $("<div>", {"class": "col-md-1"});
+    var saveButton = $("<button>", {"class": "savebtn"});
+    // assigned classes to the the created variables
+    // $(timeBlock).addClass("time-block");
+    // $(hourBlock).addClass("hour");
+    // $(textBlock).addClass("textarea");
+    // $(saveBlock).html(saveButton);
+    // $(timeBlock).html(hourBlock, textBlock, saveBlock);
+    
+
 // using for loop to create time block elements and append them to the container
-// for (i = 0; i < 12; i++) {
-//     hourCount ++;
-//     $(".container").append($("<div></div>").addClass("row"));
-//     $(".row:eq(" + i + ")").append($("<div></div>").addClass("col-md-1"), $("<div").addClass("col-md-10"), $("<div></div>").addClass("col-md-1"));
-//     $(".col-md-10:eq(" + i + ")").append($("<div></div>").addClass("hourSlot"), $("<div>").addClass("input-group mb-3"));
-//     $(".mg-3:eq(" + i + ")").append($("<div>").addClass("input-group-prepend"), $("<input>").addClass("form-control").attr("type", "text").attr("aria-label", "Text input with checkbox"));
-//     $(".input-group-prepend:eq(" + i + ")").append($("<input>").addClass("btn btn-primary").attr("type", "submit").attr("value", "Save"));
-//     $(".hourSlot:eq(" + i + ")").append(moment().add(i - 3, "hour").format("h a"));
+function generatePlanner(){
 
-//     var hour = moment().add(i - 3, "hour").format("h a");
-//     if (hourCount <= 3) {
-//         $(".form-control:eq(" + i + ")").css("background-color", "#cc5500")
-//     }
-//     else if (hourCount == 4) {
-//         $(".form-control:eq(" + i + ")").css("background-color", "#654321")
-//     }
-//     else if (hourCount > 4) {
-//         $(".form-control:eq(" + i + ")").css("background-color", "teal")
-//     }
+    for (i = 0; i < 12; i++) {
+        hourCount ++;
 
-
-//     $(".btn:eq(" + i + ")").click(function(){
-//         var input = $(".form-control:text").val();
-//         console.log(input);
-//         inputArray.push(input);
-//         console.log(inputArray);
-//         localStorage.setItem(hour, JSON.stringify(inputArray));
-//         parsedArray = JSON.parse(localStorage.getItem(hour));
-//         console.log(parsedArray);
-//     })
-// }
+        $(timeBlockBox).append(timeBlock).addClass("time-block");
+        $(timeBlock).append(hourBlock).addClass("hour");
+    };
+};
